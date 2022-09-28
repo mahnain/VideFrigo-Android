@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "410868938235-tkv5vi14c5euust8iumibfnc9mkh3b8o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jalal.android.authenticationtest",
+            "certificate_hash": "9bbf9ad6452de91a82b9200bd6364a8a6e60e9a3"
+          }
+        },
+        {
           "client_id": "410868938235-s45qausk1crfhn6p7pr12grt23b2gi3a.apps.googleusercontent.com",
           "client_type": 3
         }
