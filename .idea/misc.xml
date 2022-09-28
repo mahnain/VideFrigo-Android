@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/drawable/bg_instructions.xml" value="0.118" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/drawable/bg_search.xml" value="0.118" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/drawable/bg_yellow.xml" value="0.118" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/drawable/ic_add.xml" value="0.118" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/drawable/ic_home.xml" value="0.118" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/layout/activity_detail.xml" value="0.1796875" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/layout/fragment_add.xml" value="0.165625" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/layout/fragment_category.xml" value="0.1" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/layout/fragment_favorite.xml" value="0.1796875" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/layout/fragment_home.xml" value="0.1796875" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/layout/fragment_meal.xml" value="0.1796875" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/layout/fragment_profil.xml" value="0.1796875" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/layout/fragment_recipe.xml" value="0.1796875" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/layout/grid_item.xml" value="0.1796875" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/layout/list_item_category.xml" value="0.1796875" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/layout/list_item_recipe.xml" value="0.1796875" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1796875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
