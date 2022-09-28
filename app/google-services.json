@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "410868938235",
+    "project_id": "authenticationtest-9e105",
+    "storage_bucket": "authenticationtest-9e105.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410868938235:android:e06bcae3dd39783120875e",
+        "android_client_info": {
+          "package_name": "jalal.android.authenticationtest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "410868938235-tkv5vi14c5euust8iumibfnc9mkh3b8o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jalal.android.authenticationtest",
+            "certificate_hash": "9bbf9ad6452de91a82b9200bd6364a8a6e60e9a3"
+          }
+        },
+        {
+          "client_id": "410868938235-s45qausk1crfhn6p7pr12grt23b2gi3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn_U39QelmBrsZnXF6iAyOvZ-rFWL6LlY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "410868938235-s45qausk1crfhn6p7pr12grt23b2gi3a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
