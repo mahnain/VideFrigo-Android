@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AEC_MOBILES/420-325-AH_ANDROID_1/projets/Kotlin/AuthenticationTest/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.244" />
         <entry key="..\:/AEC_MOBILES/420-325-AH_ANDROID_1/projets/Kotlin/AuthenticationTest/app/src/main/res/drawable/ic_person.xml" value="0.229" />
         <entry key="..\:/AEC_MOBILES/420-325-AH_ANDROID_1/projets/Kotlin/AuthenticationTest/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/AEC_MOBILES/420-325-AH_ANDROID_1/projets/Kotlin/AuthenticationTest/app/src/main/res/layout/activity_posts.xml" value="0.16799999999999998" />
         <entry key="..\:/AEC_MOBILES/420-325-AH_ANDROID_1/projets/Kotlin/AuthenticationTest/app/src/main/res/layout/activity_profile.xml" value="0.264" />
+        <entry key="..\:/AEC_MOBILES/420-325-AH_ANDROID_1/projets/Kotlin/AuthenticationTest/app/src/main/res/layout/activity_reset_password.xml" value="0.264" />
         <entry key="..\:/AEC_MOBILES/420-325-AH_ANDROID_1/projets/Kotlin/AuthenticationTest/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
         <entry key="..\:/AEC_MOBILES/420-325-AH_ANDROID_1/projets/Kotlin/AuthenticationTest/app/src/main/res/layout/item_post.xml" value="0.264" />
         <entry key="..\:/AEC_MOBILES/420-325-AH_ANDROID_1/projets/Kotlin/AuthenticationTest/app/src/main/res/menu/menu_posts.xml" value="0.22239583333333332" />

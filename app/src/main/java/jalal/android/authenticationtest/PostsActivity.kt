@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import jalal.android.authenticationtest.adapter.PostsAdapter
 import jalal.android.authenticationtest.models.Post
 
 private const val TAG = "PostsActivity"
