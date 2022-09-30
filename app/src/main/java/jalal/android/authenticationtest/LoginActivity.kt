@@ -36,6 +36,7 @@ class LoginActivity : AppCompatActivity() {
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val etNotRegister = findViewById<TextView>(R.id.etNotRegister)
         val gSignInBtn = findViewById<Button>(R.id.gSignInBtn)
+        val etResetPass = findViewById<TextView>(R.id.etResetPass)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -43,14 +44,15 @@ class LoginActivity : AppCompatActivity() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this , gso)
-/*
-        findViewById<Button>(R.id.gSignInBtn).setOnClickListener {
-           // signInGoogle()
-        }
-*/
+
         etNotRegister.setOnClickListener {
 
             val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+
+        etResetPass.setOnClickListener{
+            val intent = Intent(this, ResetPasswordActivity::class.java)
             startActivity(intent)
         }
 

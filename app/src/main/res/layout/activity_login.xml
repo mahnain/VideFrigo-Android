@@ -32,19 +32,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
 
+    android:layout_marginTop="8dp"
+    android:gravity="center">
     <TextView
         android:id="@+id/etNotRegister"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:clickable="true"
         android:focusable="true"
-        android:gravity="center"
-        android:text="Not Registered Yet , Sign Up !"
+        android:gravity=""
+        android:text="Register"
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/etResetPass"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="right"
+        android:text="Reset Password"
         android:textSize="18sp" />
 
-
+</LinearLayout>
     <com.google.android.material.button.MaterialButton
         android:id="@+id/gSignInBtn"
         android:layout_gravity="center"
