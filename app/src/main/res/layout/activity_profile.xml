@@ -4,137 +4,134 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:elevation="8dp"
+    android:gravity="center"
     tools:context=".ProfileActivity">
 
-
-    <TextView
-        android:id="@+id/etEmailEdit"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="49dp"
-        android:contentDescription="Email"
-        android:hint=" Email"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/etUsernameEdit"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etUsernameEdit"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="49dp"
-        android:text=" Email : "
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/etEmailEdit"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:layout_marginTop="20dp"
-        android:text=" Username : "
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/etEmailEdit"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:cardElevation="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/UsernameInfoText"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="20dp"
-        android:text=" None"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmailEdit" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:text=" Age :"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/etEmailEdit"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <TextView
-        android:id="@+id/AgeInfoText"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="20dp"
-        android:text=" None"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UsernameInfoText" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvProfile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Profile"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <ImageView
+                    android:id="@+id/buttonEdit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.15"
+                    app:srcCompat="@drawable/edit" />
+
+                <ImageView
+                    android:id="@+id/buttonDelete"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.15"
+                    app:srcCompat="@drawable/delete" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/tvAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Age"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Email"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Address"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/buttonEdit"
+        android:id="@+id/btnUpdateEmailProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="163dp"
-        android:text="Edit"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="8dp"
+        android:text="update email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAgeEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-    <EditText
-        android:id="@+id/etUsernameEdit"
+    <Button
+        android:id="@+id/btnResetPassProfile"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:hint=" Username"
-        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="8dp"
+        android:text="Reset Password"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/btnUpdateEmailProfile" />
 
-    <EditText
-        android:id="@+id/etAgeEdit"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:hint=" Age"
-        android:inputType="number"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUsernameEdit" />
-
-    <TextView
-        android:id="@+id/textView7"
+    <Button
+        android:id="@+id/btnDeleteAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginBottom="16dp"
-        android:text="Profile Info"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/etEmailEdit"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="53dp"
-        android:text="Edit Info"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:layout_marginTop="130dp"
+        android:text="Delete account"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AgeInfoText" />
+        app:layout_constraintTop_toBottomOf="@+id/btnResetPassProfile" />
+
+    <EditText
+        android:id="@+id/updateEmailText"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="Enter new Email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

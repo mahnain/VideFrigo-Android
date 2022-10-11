@@ -63,10 +63,7 @@ class PostsActivity : AppCompatActivity() {
 
 
             }
-           /* for(document in snapshot.documents ){
-                Log.i(TAG, "Document $document.id: $document.data")
-            }
-            */
+
         }
 
     }

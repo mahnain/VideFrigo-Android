@@ -4,37 +4,92 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import jalal.android.authenticationtest.models.User
 
 private lateinit var firebaseAuth: FirebaseAuth
 class SignUpActivity : AppCompatActivity() {
+    private  lateinit var googleSignInClient: GoogleSignInClient
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
+        val firestore = Firebase.firestore
+
         val buttonSignUp = findViewById<Button>(R.id.buttonSignUp)
-        val emailEt  = findViewById<TextView>(R.id.emailEt)
+        val nameET = findViewById<EditText>(R.id.nameET)
+        val ageET = findViewById<EditText>(R.id.ageET)
+        val addressET = findViewById<EditText>(R.id.addressET)
+        val emailEt  = findViewById<EditText>(R.id.emailEt)
         val passET  = findViewById<TextView>(R.id.passET)
         val confirmPassEt  = findViewById<TextView>(R.id.confirmPassEt)
+        val textAlreadyRegistered = findViewById<TextView>(R.id.textAlreadyRegistered)
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        val bundle: Bundle? = intent.extras
+        val emailGoogle = bundle?.get("EXTRA_DATA")
+        if(emailGoogle != null) {
+            emailEt.setText(emailGoogle.toString())
+            emailEt.isEnabled = false;
+        }
+        googleSignInClient = GoogleSignIn.getClient(this , gso)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
         buttonSignUp.setOnClickListener {
+            val name = nameET.text.toString()
+            val age = ageET.text.toString().toInt()
+            val address = addressET.text.toString()
             val email = emailEt.text.toString()
             val password = passET.text.toString()
             val confirmPass = confirmPassEt.text.toString()
 
-            if (email.isNotEmpty() && password.isNotEmpty() && confirmPass.isNotEmpty()) {
+            if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && address.isNotEmpty() && confirmPass.isNotEmpty()) {
                 if (password == confirmPass) {
 
                     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            val intent = Intent(this, ProfileActivity::class.java)
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                           // if(emailGoogle == null) {
+                                firebaseAuth.currentUser?.sendEmailVerification()
 
-                            startActivity(intent)
+                                    ?.addOnSuccessListener {
+
+                                        Toast.makeText(this, "Please verify your Email", Toast.LENGTH_LONG).show()
+                                        ///////////////////////////
+                                        val userInfo = User(name, age, address, email,)
+
+                                        firestore.collection("users")
+                                            .document("${firebaseAuth.currentUser?.uid}").set(userInfo)
+                                            .addOnSuccessListener {
+                                                Toast.makeText(this, "User info Added", Toast.LENGTH_LONG).show()
+                                            }.addOnFailureListener {
+                                                Toast.makeText(this, "Failed !!", Toast.LENGTH_LONG).show()
+                                            }
+
+                                        ///////////////////////
+                                        val intent = Intent(this, LoginActivity::class.java)
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                        startActivity(intent)
+                                    }
+                                    ?.addOnFailureListener {
+                                        Toast.makeText(this, it.toString(), Toast.LENGTH_LONG).show()
+                                    }
+
+
                         } else {
                             Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
 
@@ -48,5 +103,24 @@ class SignUpActivity : AppCompatActivity() {
 
             }
         }
+        textAlreadyRegistered.setOnClickListener {
+            googleSignInClient.signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+            startActivity(intent)
+        }
+
+
+
     }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        googleSignInClient.signOut()
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        startActivity(intent)
+    }
+
 }
