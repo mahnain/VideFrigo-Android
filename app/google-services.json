@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1009294585898",
+    "project_id": "videfrigo-2ec05",
+    "storage_bucket": "videfrigo-2ec05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009294585898:android:5da54177a6a721aa12d353",
+        "android_client_info": {
+          "package_name": "com.example.videfrigo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1009294585898-8bp6irdgmtlpablrsnadipthitruibee.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.videfrigo",
+            "certificate_hash": "f3e06122f5a4d195a958dce0f48fc6b15024f038"
+          }
+        },
+        {
+          "client_id": "1009294585898-gl5h6rjmn1hb41v832svpinqcc86o8ah.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA69Ehtj0aHF2E_Mke5LaPF465tqkGJRP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1009294585898-gl5h6rjmn1hb41v832svpinqcc86o8ah.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
