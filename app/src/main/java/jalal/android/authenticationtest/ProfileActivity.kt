@@ -1,13 +1,15 @@
 package jalal.android.authenticationtest
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
-import android.view.*
+import android.view.Menu
+import android.view.MenuItem
+import android.view.ViewGroup
+import android.view.Window
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +17,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
@@ -114,17 +115,25 @@ class ProfileActivity : AppCompatActivity(){
                 }
 
                 btnEdit?.setOnClickListener {
+                    val name = editName?.text.toString()
+                    val age = editAge?.text.toString()
+                    val address = editAddress?.text.toString()
 
-                    val updateMap = mapOf(
-                        "name" to editName?.text.toString(),
-                        "age" to editAge?.text.toString().toInt(),
-                        "address" to editAddress?.text.toString()
+                    if (name.isNotEmpty() && age.isNotEmpty() && name.isNotEmpty() && address.isNotEmpty() ){
+                        val updateMap = mapOf(
+                            "name" to name,
+                            "age" to age.toInt() ,
+                            "address" to  address
 
-                    )
+                        )
 
-                    firestore.collection("users").document("${auth.currentUser?.uid}").update(updateMap)
-                    Toast.makeText(this, "Info Updated Successfully", Toast.LENGTH_LONG).show()
-                    bottomSheet.dismiss()
+                        firestore.collection("users").document("${auth.currentUser?.uid}").update(updateMap)
+                        Toast.makeText(this, "Info Updated Successfully", Toast.LENGTH_LONG).show()
+                        bottomSheet.dismiss()
+                    }else{
+                        Toast.makeText(this, "Fields cannot be empty!", Toast.LENGTH_LONG).show()
+                    }
+
                 }
                 bottomSheet.show()
             }
@@ -139,12 +148,14 @@ class ProfileActivity : AppCompatActivity(){
             deleteInfoDialog.setPositiveButton("Yes"){dialogInterface, which ->
 
                 val mapDelete = mapOf(
-                    "name" to FieldValue.delete(),
-                    "age" to FieldValue.delete(),
-                    "address" to FieldValue.delete()
+                    "name" to "",
+                    "age" to 0,
+                    "address" to "",
                 )
                 firestore.collection("users").document("${auth.currentUser?.uid}").update(mapDelete)
-                    .addOnSuccessListener { Toast.makeText(this, "Your Personal Info were successfully Deleted", Toast.LENGTH_LONG).show()  }
+                    .addOnSuccessListener { Toast.makeText(this, "Your Personal Info were successfully Deleted", Toast.LENGTH_LONG).show()
+                        restartActivity()
+                        }
                     .addOnFailureListener { Toast.makeText(this, "Deletion Failed!", Toast.LENGTH_LONG).show() }
 
             }
@@ -337,5 +348,9 @@ class ProfileActivity : AppCompatActivity(){
             return super.onOptionsItemSelected(item)
         }
 
-
+    private fun restartActivity() {
+        val intent = intent
+        finish()
+        startActivity(intent)
+    }
     }
