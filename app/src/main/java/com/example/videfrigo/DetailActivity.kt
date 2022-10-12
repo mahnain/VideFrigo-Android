@@ -1,5 +1,7 @@
 package com.example.videfrigo
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -18,6 +20,8 @@ class DetailActivity : AppCompatActivity() {
     private var idMeal: String = "0"
 
     private var imageView : ImageView?= null
+    private var favoriteImgView:ImageView?=null
+    private var youtubeImgView:ImageView?=null
     private var textViewStrMeal: TextView?=null
     private var textViewCategory: TextView?=null
     private var textViewIngredients: TextView?=null
@@ -25,6 +29,9 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
         val bundle: Bundle? = intent.extras
         idMeal = bundle?.get("detailRecipe").toString()
         initLayout()
@@ -35,6 +42,9 @@ class DetailActivity : AppCompatActivity() {
 
     private fun initLayout()
     {
+
+        youtubeImgView =findViewById(R.id.imgYoutube)
+        favoriteImgView=findViewById(R.id.imgFavorite)
         imageView=findViewById(R.id.imgRecipe)
         textViewStrMeal=findViewById(R.id.tvMealname)
         textViewCategory=findViewById(R.id.tvMealCategory)
@@ -67,6 +77,12 @@ class DetailActivity : AppCompatActivity() {
                             textViewCategory?.text="$strCategory | $strArea"
                             textViewInstructions?.text=strInstructions
 
+                            youtubeImgView?.setOnClickListener {
+                                startYoutubeActivity(strYoutube)
+                            }
+                            favoriteImgView?.setOnClickListener {
+                                changeImgFavorite()
+                            }
                            // val meal = Meal(strMeal,strMealThumb,idMeal)
 
                             for (n in 1 .. 20){
@@ -93,6 +109,25 @@ class DetailActivity : AppCompatActivity() {
     }
     private fun displayToast(message: String) {
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun startYoutubeActivity(source:String)
+    {
+        val intentYoutube = Intent(Intent.ACTION_VIEW)
+        intentYoutube.data = Uri.parse(source)
+        startActivity(intentYoutube)
+
+    }
+
+    private fun changeImgFavorite()
+    {
+        favoriteImgView?.setImageResource(R.drawable.ic_favorite_green)
+
+    }
+
+    private fun addRecipe()
+    {
+
     }
 
 }

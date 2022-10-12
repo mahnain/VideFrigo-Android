@@ -48,7 +48,6 @@ class MealFragment : Fragment(),MealAdapter.onSelectItem{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initLayout(view)
-
         fetchJson()
     }
 

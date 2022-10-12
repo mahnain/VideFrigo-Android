@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/drawable/bg_instructions.xml" value="0.116" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/drawable/bg_search.xml" value="0.116" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/drawable/bg_yellow.xml" value="0.116" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/drawable/ic_add.xml" value="0.116" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/drawable/ic_favorite.xml" value="0.116" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/drawable/ic_play.xml" value="0.116" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/drawable/ic_share_green.xml" value="0.116" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/layout/activity_detail.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/layout/activity_login.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/layout/content_sign_up.xml" value="0.1796875" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/layout/fragment_home.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/layout/fragment_profil.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/Recipe_app/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/drawable/bg_instructions.xml" value="0.118" />
         <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/drawable/bg_search.xml" value="0.118" />
         <entry key="..\:/Users/ibrh4/OneDrive/Bureau/Application_Mobile/Bloc5_Aut2022/projet_integrateur/app/src/main/res/drawable/bg_yellow.xml" value="0.118" />

@@ -16,7 +16,11 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
-        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+        android:background="@color/darkGrey"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@color/lightGreen"
+        app:itemRippleColor="@android:color/darker_gray"
+        app:itemTextColor="@color/lightGreen"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_navigation_menu"

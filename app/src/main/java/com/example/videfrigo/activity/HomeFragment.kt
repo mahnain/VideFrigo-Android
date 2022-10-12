@@ -34,6 +34,7 @@ class HomeFragment : Fragment(),MealAdapter.onSelectItem {
         arguments?.let {
 
         }
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -70,7 +71,7 @@ class HomeFragment : Fragment(),MealAdapter.onSelectItem {
     }
     private fun fetchJson()
     {
-        AndroidNetworking.get("https://www.themealdb.com/api/json/v1/1/filter.php?i=$ingredient")
+        AndroidNetworking.get("https://www.themealdb.com/api/json/v1/1/search.php?s=$ingredient")
             .setPriority(Priority.HIGH)
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
