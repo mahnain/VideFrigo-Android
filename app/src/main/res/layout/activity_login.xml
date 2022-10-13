@@ -4,73 +4,114 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
-    android:clickable="true"
+
+    android:gravity="center_vertical"
     android:orientation="vertical"
+    android:background="@color/darkGrey"
     tools:context=".LoginActivity">
 
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="email"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp" />
 
-    <EditText
-        android:id="@+id/etPassword"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="password"
-        android:inputType="textPassword"
-        android:minHeight="48dp" />
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_search">
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginLeft="10dp"
+            android:hint="email"
+            android:theme="@style/SearchView"
+            android:inputType="textEmailAddress"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_search">
+
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="password"
+            android:theme="@style/SearchView"
+            android:inputType="textPassword"
+            />
+
+    </LinearLayout>
 
     <Button
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:id="@+id/btnLogin"
+        android:background="@drawable/bg_search"
+        android:backgroundTint="@color/lightGrey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login" />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
 
-    android:layout_marginTop="8dp"
-    android:gravity="center">
-    <TextView
-        android:id="@+id/etNotRegister"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity=""
-        android:text="Register"
-        android:textSize="18sp" />
-    <TextView
-        android:id="@+id/etResetPass"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="right"
-        android:text="Reset Password"
-        android:textSize="18sp" />
+        android:layout_marginTop="8dp"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/etNotRegister"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity=""
+            android:text="Register"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/lightGreen"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/etResetPass"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Reset password"
+            android:gravity="end"
+            android:textColor="@color/lightGreen"
+            android:textSize="20sp" />
 
-</LinearLayout>
+    </LinearLayout>
     <com.google.android.material.button.MaterialButton
         android:id="@+id/gSignInBtn"
         android:layout_gravity="center"
-        android:layout_width="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:iconTint="@null"
         android:backgroundTint="@color/white"
-        android:layout_marginTop="8dp"
+
         android:text="Sign In"
         android:textColor="@color/black"
         app:iconSize="20dp"
         app:icon="@drawable/googlelogo"
-         />
+        />
 </LinearLayout>

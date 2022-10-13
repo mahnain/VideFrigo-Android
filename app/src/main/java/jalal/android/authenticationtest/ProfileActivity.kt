@@ -83,7 +83,8 @@ class ProfileActivity : AppCompatActivity(){
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             )
-            bottomSheet.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+           bottomSheet.window?.setBackgroundDrawableResource(R.color.lightGrey)
+
 
             val btnCancel: Button? = bottomSheet.findViewById(R.id.buttonCancel)
             val btnEdit: Button? = bottomSheet.findViewById(R.id.buttonEditInfo)

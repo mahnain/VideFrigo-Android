@@ -7,6 +7,20 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="lightGrey">#e0e1dd</color>
+    <color name="lightBleu">#83c5be</color>
+    <color name="darkBleu">#778da9</color>
+    <color name="darkGrey">#FF131429</color>
+    <color name="lightGreen">#FF40D876</color>
+    <color name="blackShadow">#74000000</color>
 
-    <color name="yellow">#FFC801</color>
+    <!--others-->
+
+    <color name="colorGreySoft">#BCBEC1</color>
+    <color name="colorGreyMedium">#96989A</color>
+    <color name="colorGreyDark">#797979</color>
+    <color name="colorCategory">#6FBFFF</color>
+    <color name="colorRipple">#8BC34A</color>
+    <color name="colorOverlaySoft">#1A000000</color>
+    <color name="colorOverlayDark">#33000000</color>
 </resources>

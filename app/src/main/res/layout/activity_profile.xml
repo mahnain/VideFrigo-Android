@@ -6,15 +6,22 @@
     android:layout_height="match_parent"
     android:elevation="8dp"
     android:gravity="center"
+    android:background="@color/darkGrey"
     tools:context=".ProfileActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
+        app:cardCornerRadius="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:layout_marginTop="20dp"
         app:cardElevation="10dp"
+        app:cardBackgroundColor="@color/lightGreen"
+
+
+
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -22,13 +29,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
+
             android:orientation="vertical">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                >
 
                 <TextView
                     android:id="@+id/tvProfile"
@@ -37,7 +46,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Profile"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp" />
 
                 <ImageView
                     android:id="@+id/buttonEdit"
@@ -60,7 +70,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Name"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tvAge"
@@ -68,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Age"
+                android:textColor="@android:color/black"
                 android:textSize="20sp" />
 
 
@@ -77,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Email"
+                android:textColor="@android:color/black"
                 android:textSize="20sp" />
 
             <TextView
@@ -85,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Address"
+                android:textColor="@android:color/black"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -92,8 +106,10 @@
 
     <Button
         android:id="@+id/btnUpdateEmailProfile"
+        android:background="@drawable/bg_search"
+        android:backgroundTint="@color/lightGrey"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="8dp"
         android:text="update email"
@@ -102,6 +118,8 @@
 
     <Button
         android:id="@+id/btnResetPassProfile"
+        android:background="@drawable/bg_search"
+        android:backgroundTint="@color/lightGrey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -114,6 +132,8 @@
 
     <Button
         android:id="@+id/btnDeleteAccount"
+        android:background="@drawable/bg_search"
+        android:backgroundTint="@color/lightGrey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="130dp"
@@ -125,11 +145,15 @@
     <EditText
         android:id="@+id/updateEmailText"
         android:layout_width="240dp"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:hint="Enter new Email"
+        android:gravity="center"
+        android:hint=" Enter new Email"
+        android:textSize="20sp"
+        android:background="@drawable/bg_search"
+        android:theme="@style/SearchView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
