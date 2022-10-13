@@ -1,5 +1,6 @@
 package com.example.videfrigo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SearchView
@@ -7,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 import com.example.videfrigo.activity.*
+import com.example.videfrigo.ProfileActivity
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.json.JSONObject
@@ -47,6 +49,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.category -> loadFragment(CategoryFragment())
                 R.id.favorite -> loadFragment(FavoriteFragment())
                 R.id.profils -> loadFragment(ProfilFragment())
+
                 else->{}
 
             }

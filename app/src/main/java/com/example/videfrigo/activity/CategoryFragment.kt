@@ -47,7 +47,6 @@ class CategoryFragment : Fragment(),CategoryAdapter.onSelectData {
     private fun initLayout(view:View)
     {
         recyclerview=view.findViewById(R.id.rvCategory)
-
         val mLayoutManager = GridLayoutManager(activity, 2, RecyclerView.VERTICAL, false)
         recyclerview?.layoutManager = mLayoutManager
         recyclerview?.setHasFixedSize(true)
@@ -86,7 +85,7 @@ class CategoryFragment : Fragment(),CategoryAdapter.onSelectData {
                         }
                     }
 
-                    displayToast("Response Successful")
+
                 }
 
                 override fun onError(anError: ANError?) {

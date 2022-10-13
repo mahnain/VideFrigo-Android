@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -11,21 +13,31 @@ import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.example.videfrigo.model.Meal
+import com.example.videfrigo.model.Recipe
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import org.json.JSONObject
 
 
 class DetailActivity : AppCompatActivity() {
 
+    private var firebaseAuth= FirebaseAuth.getInstance()
+    private val db = Firebase.firestore
     private var idMeal: String = "0"
-
     private var imageView : ImageView?= null
-    private var favoriteImgView:ImageView?=null
     private var youtubeImgView:ImageView?=null
     private var textViewStrMeal: TextView?=null
     private var textViewCategory: TextView?=null
     private var textViewIngredients: TextView?=null
     private var textViewInstructions: TextView?=null
+    private var cbFavorite: CheckBox?=null
+    private var isSelected:Boolean =false
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
@@ -44,15 +56,17 @@ class DetailActivity : AppCompatActivity() {
     {
 
         youtubeImgView =findViewById(R.id.imgYoutube)
-        favoriteImgView=findViewById(R.id.imgFavorite)
         imageView=findViewById(R.id.imgRecipe)
         textViewStrMeal=findViewById(R.id.tvMealname)
         textViewCategory=findViewById(R.id.tvMealCategory)
         textViewIngredients=findViewById(R.id.tvIngredients)
         textViewInstructions=findViewById(R.id.tvInstructions)
+        cbFavorite=findViewById(R.id.cbHeart)
 
+        checkFavoritesMeal(idMeal)
 
     }
+
     private fun fetchJson()
     {
         AndroidNetworking.get("https://www.themealdb.com/api/json/v1/1/lookup.php?i=$idMeal")
@@ -65,6 +79,7 @@ class DetailActivity : AppCompatActivity() {
                     if (playerArray != null) {
                         for (i in 0 until playerArray.length()) {
 
+
                             val temp = playerArray.getJSONObject(i)
                             val strMeal=temp.getString("strMeal")
                             val strCategory = temp.getString("strCategory")
@@ -73,6 +88,10 @@ class DetailActivity : AppCompatActivity() {
                             val strMealThumb = temp.getString("strMealThumb")
                             val strInstructions = temp.getString("strInstructions")
                             Picasso.get().load(strMealThumb).into(imageView)
+
+                            val meal= Meal(strMeal,strMealThumb,idMeal,null)
+
+
                             textViewStrMeal?.text=strMeal
                             textViewCategory?.text="$strCategory | $strArea"
                             textViewInstructions?.text=strInstructions
@@ -80,10 +99,24 @@ class DetailActivity : AppCompatActivity() {
                             youtubeImgView?.setOnClickListener {
                                 startYoutubeActivity(strYoutube)
                             }
-                            favoriteImgView?.setOnClickListener {
-                                changeImgFavorite()
+                            cbFavorite?.setOnCheckedChangeListener { checkBox, isChecked ->
+
+
+                                if (isChecked) {
+
+                                    if(!isSelected)
+                                    {
+                                        addRecipeDB(meal)
+                                        isSelected=true
+                                    }
+
+
+                                } else {
+                                    deleteRecipeDB(meal)
+                                    isSelected=false
+                                }
                             }
-                           // val meal = Meal(strMeal,strMealThumb,idMeal)
+
 
                             for (n in 1 .. 20){
                                 val ingredient = temp.getString("strIngredient$n")
@@ -119,14 +152,54 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
-    private fun changeImgFavorite()
+
+
+    private fun addRecipeDB(meal: Meal)
     {
-        favoriteImgView?.setImageResource(R.drawable.ic_favorite_green)
+
+        meal.idUser=firebaseAuth.currentUser?.uid
+        db.collection("Favorites")
+            .document("${meal.idMeal}").set(meal)
+            .addOnSuccessListener {
+                displayToast("meal ${meal.strMeal} added to favorite")
+            }.addOnFailureListener {
+                displayToast("meal ${meal.strMeal} add failed!!!")
+            }
+    }
+    private fun deleteRecipeDB(meal: Meal)
+    {
+        db.collection("Favorites").document("${meal.idMeal}")
+        .delete()
+        .addOnSuccessListener {  displayToast("meal ${meal.strMeal} deleted from favorite") }
+        .addOnFailureListener { displayToast("meal ${meal.strMeal} delete failed!!!") }
 
     }
 
-    private fun addRecipe()
+    private fun checkFavoritesMeal(idMeal:String)
     {
+        val msg="FIREBASE"
+
+        db.collection("Favorites")
+            .whereEqualTo("idUser", firebaseAuth.currentUser?.uid)
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    if(idMeal == document.data.getValue("idMeal").toString())
+                    {
+
+
+                        isSelected=true
+                        cbFavorite?.isChecked=true
+
+                    }
+
+                }
+
+            }
+            .addOnFailureListener { exception ->
+                Log.w(msg, "Error getting documents: ", exception)
+            }
+
 
     }
 

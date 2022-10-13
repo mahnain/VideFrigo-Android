@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
@@ -16,6 +17,7 @@ import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.example.videfrigo.DetailActivity
+import com.example.videfrigo.ProfileActivity
 import com.example.videfrigo.R
 import com.example.videfrigo.model.Meal
 import org.json.JSONObject
@@ -26,6 +28,7 @@ class HomeFragment : Fragment(),MealAdapter.onSelectItem {
 
     private lateinit var searchView: SearchView
     private var recyclerview : RecyclerView?= null
+    private var imageView : ImageView?= null
     private var ingredient:String="chicken_breast"
     private var listMeals= ArrayList<Meal>()
 
@@ -53,11 +56,17 @@ class HomeFragment : Fragment(),MealAdapter.onSelectItem {
 
     private fun initLayout(view:View)
     {
+        imageView=view.findViewById(R.id.imgUser)
         recyclerview=view.findViewById(R.id.rvSearchingredient)
         searchView = view.findViewById(R.id.search_recipe)
         val mLayoutManager =  GridLayoutManager(activity, 2, RecyclerView.VERTICAL, false)
         recyclerview?.layoutManager = mLayoutManager
         recyclerview?.setHasFixedSize(true)
+        imageView?.setOnClickListener {
+
+            val intent = Intent(activity, ProfileActivity::class.java )
+            startActivity(intent)
+        }
 
 
     }
@@ -88,7 +97,7 @@ class HomeFragment : Fragment(),MealAdapter.onSelectItem {
                                 val strMeal=temp.getString("strMeal")
                                 val strMealThumb = temp.getString("strMealThumb")
                                 val idMeal = temp.getString("idMeal")
-                                val meal = Meal(strMeal,strMealThumb,idMeal)
+                                val meal = Meal(strMeal,strMealThumb,idMeal,null)
 
                                 listMeals.add(meal)
                                 loadRecycleView()

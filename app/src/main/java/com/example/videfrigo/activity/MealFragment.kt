@@ -86,7 +86,7 @@ class MealFragment : Fragment(),MealAdapter.onSelectItem{
                             val strMeal=temp.getString("strMeal")
                             val strMealThumb = temp.getString("strMealThumb")
                             val idMeal = temp.getString("idMeal")
-                            val meal = Meal(strMeal,strMealThumb,idMeal)
+                            val meal = Meal(strMeal,strMealThumb,idMeal,null)
 
                             listMeals.add(meal)
                             loadRecycleView()
@@ -126,8 +126,8 @@ class MealFragment : Fragment(),MealAdapter.onSelectItem{
 
 
     private fun displayToast(message: String) {
-    Toast.makeText(context,message, Toast.LENGTH_SHORT).show()
-}
+     Toast.makeText(context,message, Toast.LENGTH_SHORT).show()
+    }
 
     override fun onSelected(meal: Meal) {
 

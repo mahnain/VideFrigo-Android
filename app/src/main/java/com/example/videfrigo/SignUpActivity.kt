@@ -12,18 +12,16 @@ import com.example.videfrigo.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlin.math.log
 
-private lateinit var firebaseAuth: FirebaseAuth
+
+
 
 class SignUpActivity : AppCompatActivity() {
 
-
+    private  lateinit var firebaseAuth: FirebaseAuth
     private  lateinit var googleSignInClient: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,13 +56,13 @@ class SignUpActivity : AppCompatActivity() {
 
         buttonSignUp.setOnClickListener {
             val name = nameET.text.toString()
-            val age = ageET.text.toString().toInt()
+            val age = ageET.text.toString()
             val address = addressET.text.toString()
             val email = emailEt.text.toString()
             val password = passET.text.toString()
             val confirmPass = confirmPassEt.text.toString()
 
-            if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && address.isNotEmpty() && confirmPass.isNotEmpty()) {
+            if (email.isNotEmpty() && password.isNotEmpty() && age.isNotEmpty() && name.isNotEmpty() && address.isNotEmpty() && confirmPass.isNotEmpty()) {
                 if (password == confirmPass) {
 
                     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
@@ -76,7 +74,7 @@ class SignUpActivity : AppCompatActivity() {
 
                                     Toast.makeText(this, "Please verify your Email", Toast.LENGTH_LONG).show()
                                     ///////////////////////////
-                                    val userInfo = User(name, age, address, email,)
+                                    val userInfo = User(name, age.toInt(), address, email,)
 
                                     firestore.collection("users")
                                         .document("${firebaseAuth.currentUser?.uid}").set(userInfo)
